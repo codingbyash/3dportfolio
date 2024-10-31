@@ -16,12 +16,15 @@ import BlogDetails from "./components/Blogs/BlogDetails";
 import BlogList from "./components/Blogs/BlogList";
 import AddBlog from "./components/Blogs/AddBlog";
 import EditBlog from "./components/Blogs/EditBlog";
+import Chatbot from "./components/Chatbot/Chatbot";
 
 const App = () => {
   return (
     <Router>
       <div className='relative z-0 bg-primary'>
         <MainContent />
+        <Chatbot/>
+
       </div>
     </Router>
   );

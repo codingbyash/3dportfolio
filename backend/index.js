@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const projectRoutes = require('./routes/projects');
 const blogRoutes = require("./routes/blogRoutes");
-// const chatbotRoutes = require('./routes/chatbotRoutes');
+const chatbotRoutes = require('./routes/chatbotRoutes');
 
 
 const app = express();
@@ -21,7 +21,7 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTo
 
 app.use('/api', projectRoutes);
 app.use('/api', blogRoutes);
-// app.use('/api', chatbotRoutes);
+app.use('/api', chatbotRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
