@@ -1,20 +1,23 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { github } from "../assets";
+import { linkimage } from "../assets";
+
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({
   index,
-  name,
+  title,
   description,
-  tags,
+  technologies,
   image,
-  source_code_link,
+  sourceCodeLink,
+  livelink,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -26,39 +29,53 @@ const ProjectCard = ({
         }}
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
       >
-        <div className='relative w-full h-[230px]'>
-          <img
-            src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-          />
+   <div className='relative w-full h-[230px]'>
+  <img
+    src={image}
+    alt='project_image'
+    className='w-full h-full object-cover rounded-2xl'
+  />
 
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-            >
-              <img
-                src={github}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
-              />
-            </div>
-          </div>
-        </div>
+  
+  <div className='absolute top-3 right-3 flex card-img_hover'>
+    <div
+      onClick={() => window.open(sourceCodeLink, "_blank")}
+      className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+    >
+      <img
+        src={github}
+        alt='source code'
+        className='w-1/2 h-1/2 object-contain'
+      />
+    </div>
+  </div>
+
+  <div className='absolute bottom-3 left-3 flex card-img_hover'>
+    <div
+      onClick={() => window.open(livelink, "_blank")}
+      className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+    >
+      <img
+        src={linkimage}
+        alt='live link'
+        className='w-1/2 h-1/2 object-contain'
+      />
+    </div>
+  </div>
+</div>
 
         <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+          <h3 className='text-white font-bold text-[24px]'>{title}</h3>
           <p className='mt-2 text-secondary text-[14px]'>{description}</p>
         </div>
 
         <div className='mt-4 flex flex-wrap gap-2'>
-          {tags.map((tag) => (
+          {technologies.map((tech) => (
             <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+              key={`${title}-${tech}`}
+              className={`text-[14px]}`}
             >
-              #{tag.name}
+              {/* #{tag.name} */}
             </p>
           ))}
         </div>
@@ -68,6 +85,20 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/projects");
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -89,12 +120,22 @@ const Works = () => {
       </div>
 
       <div className='mt-20 flex flex-wrap gap-7'>
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+      {projects.map((project, index) => (
+          <ProjectCard
+            key={`project-${project._id}`}
+            index={index}
+            title={project.title}
+            description={project.description}
+            technologies={project.technologies}
+            image={project.image}
+            sourceCodeLink={project.sourceCodeLink}
+            liveLink={project.liveLink}
+          />
         ))}
+
       </div>
     </>
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "work");

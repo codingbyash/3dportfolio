@@ -8,8 +8,11 @@ const Earth = () => {
   const earth = useGLTF("./planet/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
-  );
+    <>
+    <ambientLight intensity={0.5} />
+    <directionalLight position={[5, 5, 5]} intensity={1} />
+    <primitive object={earth.scene} scale={3.0} position-y={-3} rotation-y={-1} />
+  </>  );
 };
 
 const EarthCanvas = () => {
