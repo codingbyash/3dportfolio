@@ -120,26 +120,26 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
+    title: "WordPress Web Developer",
+    company_name: "Genuine Impact Media",
     icon: starbucks,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "Aug 2023 - Current",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Developing and maintaining web applications using WordPress and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
+    title: "React Developer",
+    company_name: "Private",
     icon: tesla,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "Aug 2023 - current",
     points: [
-      "Conducting thorough analysis and research to inform decision-making processes.",
+      "Building apps using React js",
       "Creating detailed reports that summarize findings and provide actionable recommendations.",
       "Collaborating with team members to brainstorm innovative solutions and strategies.",
       "Presenting ideas and insights to stakeholders in a clear and compelling manner.",
@@ -147,11 +147,11 @@ const experiences = [
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
+    title: "Backend Developer",
+    company_name: "Not Specified",
     icon: shopify,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "Dec 2023 - Current",
     points: [
       "Conducting thorough analysis and research to inform decision-making processes.",
       "Creating detailed reports that summarize findings and provide actionable recommendations.",
@@ -161,13 +161,15 @@ const experiences = [
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
+    title: "Content Writer",
+    company_name: "Department Of Student ORganisations, LPU",
     icon: meta,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "Jan 2023 - Aug 2024",
     points: [
-      "This is an example paragraph that illustrates the simplicity and clarity of everyday observations. When we take a moment to notice our surroundings, we often find beauty in the ordinary. The way the sunlight filters through the leaves, creating patterns on the ground, or the sound of laughter echoing in a park, can bring a sense of joy and contentment. These small moments serve as reminders of the richness of life and the importance of being present. By appreciating these experiences, we cultivate a deeper connection to the world around us, fostering gratitude and mindfulness in our daily routines."
+      "Member Of Annual Magazine INVISION 4.0",
+      "Written many articles",
+      "written books"
     ],
   },
 ];
