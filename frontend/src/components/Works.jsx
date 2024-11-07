@@ -89,7 +89,7 @@ const Works = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/projects");
+        const response = await fetch(`${window.location.origin}/api/projects`);
         const data = await response.json();
         setProjects(data);
       } catch (error) {

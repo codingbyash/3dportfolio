@@ -12,7 +12,7 @@ const Chatbot = () => {
         e.preventDefault();
         const sessionId = Math.random().toString(36).substr(2, 9);
 
-        const res = await fetch(`http://localhost:5000/api/website?text=${message}&mysession=${sessionId}`);
+        const res = await fetch(`${window.location.origin}/api/website?text=${message}&mysession=${sessionId}`);
         const data = await res.text();
 
         setResponses([...responses, { user: message, bot: data }]);
