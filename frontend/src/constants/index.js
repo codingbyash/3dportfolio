@@ -175,29 +175,30 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
+      "I thought it was impossible to make a website as beautiful as our product, but Ashish proved me wrong with his dedication and attention to detail.",
+    name: "Priya Sharma",
     designation: "CFO",
     company: "Acme Co",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
+      "I've never met a web developer who genuinely cares about their clients' success like Ashish does. He goes above and beyond to understand our needs.",
+    name: "Rajesh Kumar",
     designation: "COO",
     company: "DEF Corp",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
+      "After Ashish optimized our website, our traffic increased by 50%. His expertise has been invaluable, and we can't thank him enough!",
+    name: "Anjali Patel",
     designation: "CTO",
     company: "456 Enterprises",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
+
 
 const projects = [
   {

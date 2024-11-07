@@ -26,9 +26,9 @@ const Chatbot = () => {
                     className="chat-icon" 
                     onClick={() => setIsOpen(true)}
                     initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+                    transition={{ duration: 1, repeat: Infinity, repeatType: 'loop' }}
                     whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
                 >
                     <FaComments size={28} color="#800000" />
                     <p>Need Help?</p>

@@ -26,9 +26,8 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simple validation
     if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill in all fields."); // Use toast.error
+      toast.error("Please fill in all fields.");
       setLoading(false);
       return;
     }
@@ -39,9 +38,9 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "Your Name", // replace with your name or business name
+          to_name: "Your Name",
           from_email: form.email,
-          to_email: "your_email@example.com", // replace with your email
+          to_email: "your_email@example.com",
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -49,73 +48,78 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          toast.success("Thank you. I will get back to you as soon as possible."); // Use toast.success
+          toast.success("Thank you. I will get back to you as soon as possible.");
           setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
           console.error(error);
-          toast.error("Ahh, something went wrong. Please try again."); // Use toast.error
+          toast.error("Ahh, something went wrong. Please try again.");
         }
       );
   };
 
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        className="flex-[0.75] bg-black-100 p-10 rounded-2xl shadow-lg"
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className={`${styles.sectionSubText} text-center`}>More Enquiries?</p>
+        <h3 className={`${styles.sectionHeadText} text-center`}>Reach me</h3>
 
-        <form ref={formRef} onSubmit={handleSubmit} className='mt-12 flex flex-col gap-8'>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-10 flex flex-col gap-6">
+          <label className="flex flex-col">
+            <span className="text-white font-semibold mb-2 text-lg">Your Good Name</span>
             <input
-              type='text'
-              name='name'
+              type="text"
+              name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              placeholder="Kindly enter your amazing name here.."
+              className="bg-tertiary py-3 px-5 rounded-lg placeholder:text-secondary text-white outline-none border-none shadow-md transition-transform duration-300 hover:shadow-lg"
             />
           </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Email</span>
+          <label className="flex flex-col">
+            <span className="text-white font-semibold mb-2 text-lg">Your Email</span>
             <input
-              type='email'
-              name='email'
+              type="email"
+              name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              placeholder="hey your email here.."
+              className="bg-tertiary py-3 px-5 rounded-lg placeholder:text-secondary text-white outline-none border-none shadow-md transition-transform duration-300 hover:shadow-lg"
             />
           </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
+          <label className="flex flex-col">
+            <span className="text-white font-semibold mb-2 text-lg">Your Message</span>
             <textarea
-              rows={7}
-              name='message'
+              rows={6}
+              name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder='What do you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              placeholder="write whatever you wanna say "
+              className="bg-tertiary py-3 px-5 rounded-lg placeholder:text-secondary text-white outline-none border-none shadow-md transition-transform duration-300 hover:shadow-lg"
             />
           </label>
           <button
-            type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            type="submit"
+            className="bg-tertiary py-3 px-8 rounded-full text-white font-bold shadow-lg shadow-primary transition-transform duration-300 hover:scale-105 hover:bg-opacity-90"
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "hold a sec, the message is getting sent" : "Send Message"}
           </button>
         </form>
       </motion.div>
-
       <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-      >
+  variants={slideIn("left", "tween", 0.2, 1)}
+  className="flex-[0.25] bg-gray-300 p-10 shadow-lg rounded-full"
+  style={{
+    width: "100%", // Use to control shape proportions
+    height: "900px", // Adjust height to your preference for an ellipse
+  }}
+  
+>
+
         <EarthCanvas />
       </motion.div>
     </div>
