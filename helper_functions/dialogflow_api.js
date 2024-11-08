@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require("path");
 
 
-const CREDENTIALS_PATH = path.join(__dirname, './dialogflow-key.json');
+const CREDENTIALS_PATH = path.join(__dirname, '../dialogflow-key.json');
 const CREDENTIALS = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf-8'));
 
 const PROJECID = CREDENTIALS.project_id;
