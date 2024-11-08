@@ -1,7 +1,7 @@
 const dialogflow = require('@google-cloud/dialogflow');
 const fs = require('fs');
 
-const CREDENTIALS = JSON.parse(fs.readFileSync("./dialogflow-key.json", 'utf-8'));
+const CREDENTIALS = JSON.parse(fs.readFileSync("../dialogflow-key.json", 'utf-8'));
 
 const PROJECID = CREDENTIALS.project_id;
 
