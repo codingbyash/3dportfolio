@@ -14,7 +14,7 @@ const AddBlog = () => {
     console.log('Submitting:', newBlog);
 
     try {
-      const response = await fetch('http://localhost:5000/api/blogs', {
+      const response = await fetch(`${window.location.origin}/api/blogs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

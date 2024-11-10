@@ -29,7 +29,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/blogs');
+        const response = await fetch(`${window.location.origin}/api/blogs`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -53,7 +53,7 @@ const BlogList = () => {
   const confirmDelete = async () => {
     if (blogToDelete) {
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${blogToDelete}`, {
+        const response = await fetch(`${window.location.origin}/api/blogs/${blogToDelete}`, {
           method: 'DELETE',
         });
 
