@@ -1,0 +1,4 @@
+.env
+/node_modules
+dialogflow-key.json
+/helper_functions
