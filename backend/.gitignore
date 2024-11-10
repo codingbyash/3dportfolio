@@ -1,4 +1,4 @@
 .env
 /node_modules
 dialogflow-key.json
-/helper_functions/dialogflow_api.js
+/helper_functions
