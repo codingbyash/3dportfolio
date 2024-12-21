@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from React frontend
-app.use(express.static(path.join(__dirname, "frontend", "build")));
+app.use(express.static(path.resolve(__dirname, "frontend", "build")));
 
 // Serve the React app for any other route
 app.get("*", (req, res) => {
